@@ -1,6 +1,7 @@
 """Library:
 https://education.yandex.ru/handbook/python/article/stroki-kortezhi-spiski
-https://docs.python.org/3.5/library/re.html"""
+https://docs.python.org/3.5/library/re.html
+https://regex101.com/"""
 # Tasks
 """ 0
 Есть строка s = "abcdefghijk".
