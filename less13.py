@@ -178,16 +178,17 @@ print("sorted array: " + str(array))
 АЛГОРИТМ РАЗДЕЛЯЙ И ВЛАСТВУЙ
 """
 # Алгоритм угадывает число от 1 до 1024 за 10 попыток. Пользователь отвечает: загаданное число > или < ответа.
-arr_len = 1024
-mid = arr_len / 2
-for i in range(1, 11):
-    answer = input(f'{round(mid)} \n')
-    if answer == '<':
-        mid -= (arr_len / 2 ** (i + 1))
-    elif answer == '>':
-        mid += (arr_len / 2 ** (i + 1))
-    elif answer == 'Угадал!':
-        print(f'Потребовалось {i} Попыток!')
+def binary_search():
+    arr_len = 1024
+    mid = arr_len / 2
+    for i in range(1, 11):
+        answer = input(f'{round(mid)} \n')
+        if answer == '>':
+            mid -= (arr_len / 2 ** (i + 1))
+        elif answer == '<':
+            mid += (arr_len / 2 ** (i + 1))
+        elif answer == 'Угадал!':
+            print(f'Потребовалось {i} Попыток!')
 
 
 
@@ -212,33 +213,24 @@ https://i.postimg.cc/vyjMQbd7/marge-sort-in-python-01.png
 
 Каждый раз, когда мы выбираем меньшее значение в начале половины, мы на единицу увеличиваем индекс 
 элемента, который нужно сравнить.
-
 """
 def merge(left_list, right_list):
     sorted_list = []
     left_list_index = right_list_index = 0
-
     left_list_length, right_list_length = len(left_list), len(right_list)
 
     for _ in range(left_list_length + right_list_length):
         if left_list_index < left_list_length and right_list_index < right_list_length:
-
             if left_list[left_list_index] <= right_list[right_list_index]:
                 sorted_list.append(left_list[left_list_index])
                 left_list_index += 1
-            # If the item at the beginning of the right list is smaller, add it
-            # to the sorted list
             else:
                 sorted_list.append(right_list[right_list_index])
                 right_list_index += 1
 
-        # If we've reached the end of the left list, add the elements
-        # from the right list
         elif left_list_index == left_list_length:
             sorted_list.append(right_list[right_list_index])
             right_list_index += 1
-        # If we've reached the end of the right list, add the elements
-        # from the left list
         elif right_list_index == right_list_length:
             sorted_list.append(left_list[left_list_index])
             left_list_index += 1
@@ -247,23 +239,18 @@ def merge(left_list, right_list):
 
 
 def merge_sort(nums):
-    # If the list is a single element, return it
-    if len(nums) <= 1:
+
+    if len(nums) == 1:
         return nums
 
-    # Use floor division to get midpoint, indices must be integers
     mid = len(nums) // 2
-
-    # Sort and merge each half
     left_list = merge_sort(nums[:mid])
     right_list = merge_sort(nums[mid:])
 
-    # Merge the sorted lists into a new one
     return merge(left_list, right_list)
 
 
-# Verify it works
 random_list_of_nums = [120, 45, 68, 250, 176]
 random_list_of_nums = merge_sort(random_list_of_nums)
 print(random_list_of_nums)
-
+"""O(n*log(n))"""
