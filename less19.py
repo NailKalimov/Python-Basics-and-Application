@@ -73,6 +73,40 @@ b.add_many(3)
 print("b =", b.val, "******")
 
 #######################
+'''Одно из применений множественного наследование – расширение 
+функциональности класса каким-то заранее определенным способом. 
+Например, если нам понадобится логировать какую-то информацию при 
+обращении к методам класса.
+
+Рассмотрим класс Loggable:'''
+
+import time
+
+class Loggable:
+    def log(self, msg):
+        print(str(time.ctime()) + ": " + str(msg))
+'''У него есть ровно один метод log, который позволяет выводить в лог 
+(в данном случае в stdout) какое-то сообщение, добавляя при этом текущее 
+время.
+Реализуйте класс LoggableList, отнаследовав его от классов list и 
+Loggable таким образом, чтобы при добавлении элемента в список 
+посредством метода append в лог отправлялось сообщение, состоящее из 
+только что добавленного элемента.
+
+Примечание
+Ваша программа не должна содержать класс Loggable. При проверке вашей 
+программе будет доступен этот класс, и он будет содержать метод log, 
+описанный выше.'''
+
+#answer:
+'''class LoggableList(list, Loggable):
+    def append(self, __object):
+        # list.append(self, __object)
+        super(LoggableList, self).append(__object)
+        # Loggable.log(self, __object)
+        super(LoggableList, self).log(__object)'''
+
+#######################
 class Descriptor:
     def __get__(self, obj, type):
         print("getter used")
@@ -105,3 +139,5 @@ m.prop = 1      # setter used
 del (m.prop)     # deleter used
 
 ##########################
+
+# https://education.yandex.ru/handbook/python/article/volshebnye-metody-pereopredelenie-metodov-nasledovanie
