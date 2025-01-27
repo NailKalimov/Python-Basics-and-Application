@@ -14,10 +14,11 @@ class SingletonClass(Singleton):
 class RegularClass():
     pass
 
-
+Singleton().x=1
 x = SingletonClass()
 y = SingletonClass()
 print(x == y)  # True
+print(f"x.x={x.x}, y.x={y.x}")
 
 x = RegularClass()
 y = RegularClass()

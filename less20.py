@@ -1,5 +1,3 @@
-from less3 import objects
-
 lst = [123, 123]
 if isinstance(lst, object):
     print("lst is a subclass of object")
