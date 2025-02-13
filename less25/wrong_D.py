@@ -29,3 +29,7 @@ file = TextFileOperations("D:\\data.txt")
 obj = TextOperations(file)
 print(f"{obj.search_for_word('more')}")
 print(f"{obj.count_occurrences('be')}")
+'''Высокоуровневый модуль TextOperations непосредственно зависит от низкоуровневого модуля TextFileOperations. 
+Такая тесная связь означает, что если вы захотите изменить источник получения текстовых данных 
+(например, из базы данных или API вместо текстового файла), вам придется вносить изменения в 
+сам класс TextOperations.'''

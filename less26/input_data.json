@@ -1,0 +1,10 @@
+{
+  "Moscow": {
+    "temp": "+15",
+    "cloudiness": "clear sky"
+  },
+  "Saint-Petersburg": {
+    "temp": "+3",
+    "cloudiness": "fog"
+  }
+}
