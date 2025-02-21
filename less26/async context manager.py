@@ -4,20 +4,17 @@ import asyncio
 # имитация асинхронного соединения с некой периферией
 async def get_conn(host, port):
     class Conn:
-        @staticmethod
-        async def put_data():
+        async def put_data(self):
             print('Отправка данных...')
             await asyncio.sleep(2)
             print('Данные отправлены.')
 
-        @staticmethod
-        async def get_data():
+        async def get_data(self):
             print('Получение данных...')
             await asyncio.sleep(2)
             print('Данные получены.')
 
-        @staticmethod
-        async def close():
+        async def close(self):
             print('Завершение соединения...')
             await asyncio.sleep(2)
             print('Соединение завершено.')
