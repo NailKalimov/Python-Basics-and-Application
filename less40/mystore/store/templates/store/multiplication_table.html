@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Таблица умножения</h1>
+<form method="post">
+    {% csrf_token %}
+    <input type="number" name="start" placeholder="Начало диапазона">
+    <input type="number" name="end" placeholder="Конец диапазона">
+    <input type="submit" value="Показать таблицу">
+</form>
+{% if numbers %}
+<table>
+    {% for i in numbers %}
+    <tr>
+        {% for j in numbers %}
+        <td>{{ i }} x {{ j }} = {% widthratio i 1 j %}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+
+
+</body>
+</html>

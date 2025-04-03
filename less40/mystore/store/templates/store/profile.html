@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Профиль</h1>
+<p>Имя: {{ user_profile.first_name }}</p>
+<p>Фамилия: {{ user_profile.last_name }}</p>
+<p>Возраст: {{ user_profile.age }}</p>
+<p>Email: {{ user_profile.email }}</p>
+<p>Пол: {{ user_profile.gender }}</p>
+<p>Адрес для доставки: {{ user_profile.delivery_address }}</p>
+<p>Подписка на новости: {% if user_profile.subscribe %}Да{% else %}Нет{% endif %}</p>
+
+
+</body>
+</html>
